@@ -1,0 +1,21 @@
+.about-us {
+  .content {
+    .info {
+      margin: 4rem 3rem;
+      @media (max-width: 767px) {
+        margin: 4rem 0rem;
+      }
+      section {
+        margin-bottom: 3rem;
+        .title {
+          font-size: 1rem;
+          margin-bottom: 1rem;
+          text-transform: uppercase;
+        }
+        .description {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,493 @@
+//?? ####==> Components <==#### */
+body {
+  font-family: $default-font-family;
+  text-align: start;
+}
+
+.section-margin-bottom {
+  margin-bottom: 2.5rem;
+}
+
+//? 1-> Navbar <- */
+.menu-items {
+  min-width: 13rem;
+  border: none;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  top: 3.6rem;
+
+  &::after {
+    @include triangle-after(10);
+  }
+
+  @media (max-width: 991px) {
+    box-shadow: none;
+    margin: 0.4rem 0;
+
+    &::after {
+      position: absolute;
+      top: 2.4rem;
+      left: 1rem;
+    }
+  }
+}
+
+html:lang(ar) {
+  .menu-items {
+    right: 0;
+
+    &::after {
+      @include triangle-after(88);
+    }
+
+    @media (max-width: 991px) {
+      &::after {
+        top: 2.4rem;
+        right: 1rem;
+      }
+    }
+  }
+}
+
+.navbar {
+
+  .navbar-menu,
+  .navbar-menu.show {
+    span {
+      padding-top: 0;
+    }
+
+    .navbar-link {
+      color: #fff;
+      transition: $default-transition;
+
+      &:focus,
+      &:hover {
+        color: $second-color;
+      }
+    }
+  }
+}
+
+//? 2-> Product Rating <- */
+.product-rate {
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+//? 3-> Main Button <- */
+@mixin buttonStyleMain($color) {
+  color: white;
+  background-color: $color;
+  border: none;
+  white-space: nowrap;
+  max-width: 14rem;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25rem;
+  position: relative;
+
+  svg {
+    margin-inline-end: 0.3rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: calc(100% - (2 * 0.3rem));
+    height: calc(100% - (2 * 0.2rem));
+    left: 0.3rem;
+    top: 0.2rem;
+    border-radius: 10rem;
+    transition: $default-transition;
+    border: 2px solid transparent;
+  }
+
+  &:hover,
+  &:active,
+  &:not(:disabled):not(.disabled):active {
+    color: #fff;
+    background-color: $color;
+    border-color: transparent;
+    text-decoration: none;
+
+    &::after {
+      border-color: #fff;
+    }
+  }
+
+  &:focus,
+  &:not(:disabled):not(.disabled):active:focus {
+    box-shadow: 0 0 0 0.2rem rgba($color, 0.5);
+    color: #fff;
+    background-color: $color;
+    border-color: transparent;
+  }
+}
+
+@mixin buttonStyleOutline($color) {
+  background-color: #fff;
+  color: $color;
+  border: 2px solid $color;
+
+  &:hover {
+    background-color: $color;
+    color: #fff;
+
+    &::after {
+      content: none;
+    }
+  }
+}
+
+@mixin buttonStyleLink($color) {
+  color: $color;
+  padding: 0;
+  background-color: #fff;
+  text-decoration: none;
+  border: none;
+  display: inline-block;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0.2rem 1rem;
+
+  &::after {
+    content: none;
+  }
+
+  &:hover {
+    color: $color;
+    background-color: #fff;
+    text-decoration: underline;
+  }
+
+  &:hover,
+  &:active,
+  &:not(:disabled):not(.disabled):active {
+    color: $color;
+    background-color: #fff;
+    text-decoration: underline;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($color, 0.5);
+    color: $color;
+    background-color: #fff;
+    border: none;
+  }
+}
+
+.main-button {
+  @include buttonStyleMain($main-color);
+
+  &.dark {
+    @include buttonStyleMain($gray-dark);
+  }
+
+  //? If Link
+  &.link {
+    @include buttonStyleLink($main-color);
+
+    &.dark {
+      @include buttonStyleLink($gray-dark);
+    }
+  }
+
+  //? If Outline
+  &.outline {
+    @include buttonStyleOutline($main-color);
+
+    &.dark {
+      @include buttonStyleOutline($gray-dark);
+    }
+  }
+}
+
+//?? ####==> Pages <==#### */
+//? 1-> General <- */
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+a,
+span {
+  display: inline-block;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.list-style-none {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.title {
+  color: $gray-dark;
+}
+
+hr {
+  border-color: #cecece;
+  margin: 1.5rem 0;
+}
+
+.basic-font {
+  font-size: 12px;
+}
+
+.font-padding-top {
+  padding-top: 2px;
+}
+
+//? 2-> Components <- */
+//?? --> Pagination
+.coffee-pagination {
+  .page-item {
+    margin: 0 0.5rem;
+
+    &.active {
+      color: #000;
+
+      .page-link {
+        background-color: transparent;
+        border-color: #127cc0;
+      }
+    }
+
+    .page-link {
+      width: 3rem;
+      height: 3rem;
+      padding: 0;
+      padding-top: 0.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      border: 2px solid #ebebeb;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  .prev,
+  .next {
+    @media (max-width: 460px) {
+      display: none;
+    }
+
+    color: #000;
+
+    .page-link {
+      background-color: #e4e7ee;
+      border-color: transparent;
+      padding-top: 0.15rem;
+      color: #2c4c99;
+    }
+
+    button.page-link {
+      background-color: $main-color;
+      color: #fff;
+    }
+  }
+}
+
+//?? --> Recipes & Blog Filter
+.recipes-blog-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 3rem;
+
+  .filter {
+    margin: 0 0.75rem;
+
+    input {
+      &:checked {
+        +label {
+          background-color: $main-color;
+          color: #fff;
+        }
+      }
+    }
+
+    label {
+      cursor: pointer;
+      background-color: #e9e7e7;
+      padding: 0.8rem 1.6rem;
+      padding-top: 1.05rem;
+      min-width: 8rem;
+      transition: $default-transition;
+    }
+  }
+}
+
+//?? --> Tags
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  .tag {
+    background-color: #e9e7e7;
+    padding: 0.4rem 1rem;
+    padding-top: 0.65rem;
+    margin-inline-end: 0.5rem;
+    margin-block-end: 0.5rem;
+    border-radius: 50rem;
+
+    &.feature {
+      background-color: transparent;
+      padding: 0.4rem 0.5rem;
+      padding-top: 0.65rem;
+
+      .icon {
+        color: #14b93b;
+      }
+    }
+  }
+}
+
+//?? --> Seller(Coffee) Data
+.seller-coffee-data {
+  padding-inline-end: 1.5rem;
+
+  .title {
+    color: $gray-dark;
+  }
+
+  .location {
+    img {
+      width: 0.8rem;
+      margin-inline-end: 0.5rem;
+    }
+
+    p {
+      color: $gray-dark;
+    }
+  }
+
+  .description {
+    color: $gray-dark;
+  }
+
+  .show-on-map {
+    position: absolute;
+    right: 1.75rem;
+    top: 1rem;
+  }
+
+  @media (max-width: 991px) {
+    padding-inline-start: 2.25rem;
+
+    .show-on-map {
+      position: relative;
+      margin-inline-start: auto;
+      margin-top: 0.5rem;
+      right: unset;
+      top: unset;
+    }
+  }
+}
+
+//?? --> Load More
+.load-more {
+  img {
+    width: 1.4rem;
+    margin-inline-end: 0.5rem;
+  }
+
+  span {
+    color: $main-color;
+  }
+}
+
+.description-small-screen {
+  font-size: 1rem;
+  text-align: start;
+}
+
+// Profile Dropdown
+.profile-dropdown {
+  button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: #fff;
+
+    &:hover,
+    &:not(:disabled):not(.disabled):active,
+    &:focus,
+    &:not(:disabled):not(.disabled):active:focus {
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    &::after {
+      margin-inline-start: 0.225em;
+    }
+  }
+
+  &.show>button.dropdown-toggle {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .dropdown-menu {
+    .dropdown-item {
+      padding: 0.65rem 2rem 0.4rem 2rem;
+
+      &:hover {
+        color: #107cc0;
+        background-color: rgba(18, 124, 192, 0.1);
+      }
+    }
+  }
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+  padding: 0 0.5rem; //to stable with arbic stayle
+}
+
+html:lang(ar) {
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200&display=swap');
+
+  body {
+    font-family: 'Cairo', sans-serif;
+  }
+
+  .navbar-menu {
+    a {
+      &::after {
+        margin-inline-start: 0.255em;
+      }
+
+      span {
+        padding-top: 0;
+      }
+    }
+  }
+
+  .profile-dropdown {
+    .dropdown-menu {
+      text-align: right !important;
+    }
+  }
+
+  .b-rating {
+    justify-content: end;
+  }
+}
+
+.btn:focus, .btn.focus , .main-button.link:focus , .main-button:focus, .main-button:not(:disabled):not(.disabled):active:focus{
+  box-shadow: none;
+}

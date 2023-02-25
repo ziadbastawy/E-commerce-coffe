@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[70],{800:function(e,t,n){"use strict";n.r(t);var c={name:"Payment",components:{Checkout:n(775).default},middleware:"auth"},o=n(32),component=Object(o.a)(c,(function(){var e=this.$createElement;return(this._self._c||e)("Checkout")}),[],!1,null,"4d2bf0b5",null);t.default=component.exports}}]);

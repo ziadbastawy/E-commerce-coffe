@@ -1,0 +1,38 @@
+.privacy-policy {
+  .content {
+    font-size: 13px;
+    .info {
+      margin: 4rem 3rem;
+      @media (max-width: 767px) {
+        margin: 4rem 0rem;
+      }
+    }
+    .small-header-title {
+      margin-bottom: 1rem;
+    }
+    .list {
+      list-style: disc;
+      padding: 0 1rem;
+      li {
+        margin-bottom: 0.7rem;
+      }
+      .inner-list {
+        list-style: revert;
+        padding: 0 1rem;
+        li {
+          margin-bottom: 0.7rem;
+        }
+      }
+      .paragraph-out-list {
+        margin: 1rem -1rem;
+      }
+    }
+    .order-list {
+      list-style: auto;
+      padding: 0 1rem;
+      li {
+        margin-bottom: 0.7rem;
+      }
+    }
+  }
+}

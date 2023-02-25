@@ -1,0 +1,44 @@
+.contact-us {
+  background: #f3f1f15c;
+
+  .main-header {
+    font-size: 22px;
+    font-weight: 900 !important;
+  }
+  .want-to-get-in-touch {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .map-image {
+    border-radius: 13px;
+    height: 290px;
+  }
+  .contact-info,
+  .contact-us-form {
+    background: #fff;
+    box-shadow: 0px 0px 3px #f3f3f3;
+    border-radius: 13px;
+    padding: 2rem;
+
+    ::v-deep label {
+      font-size: 12px !important;
+      color: #8a8a8a !important;
+    }
+
+    .submit-button {
+      border-radius: 30px;
+      font-size: 12px;
+      padding: 10px 40px;
+    }
+
+    .contact-icon {
+      margin-inline-end: 0.5rem;
+      min-width: 30px;
+    }
+    .contact-details {
+      display: inline-block;
+      padding-top: 2px;
+      font-size: 12px;
+    }
+  }
+}
