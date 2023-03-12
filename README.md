@@ -1,4 +1,4 @@
-# coffepedia-2
+# e-commerce-coffe
 
 ## Build Setup
 
